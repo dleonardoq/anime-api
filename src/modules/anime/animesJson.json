@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Attack on Titan",
+    "description": "Humanity fights for survival against man-eating giants.",
+    "caps": 87,
+    "date": "2013-04-06T00:00:00.000Z",
+    "image": "https://example.com/aot.jpg",
+    "genre": "action",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "One Piece",
+    "description": "Monkey D. Luffy sails the seas to find the One Piece.",
+    "caps": 1050,
+    "date": "1999-10-20T00:00:00.000Z",
+    "image": "https://example.com/onepiece.jpg",
+    "genre": "Adventure",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Death Note",
+    "description": "A high schooler gains the power to kill anyone with a notebook.",
+    "caps": 37,
+    "date": "2006-10-03T00:00:00.000Z",
+    "image": "https://example.com/deathnote.jpg",
+    "genre": "Mistery",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Sword Art Online",
+    "description": "Players are trapped in a virtual reality MMORPG.",
+    "caps": 96,
+    "date": "2012-07-08T00:00:00.000Z",
+    "image": "https://example.com/sao.jpg",
+    "genre": "Fantasy",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Naruto",
+    "description": "A ninja strives to become the Hokage.",
+    "caps": 220,
+    "date": "2002-10-03T00:00:00.000Z",
+    "image": "https://example.com/naruto.jpg",
+    "genre": "action",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "My Hero Academia",
+    "description": "A boy without powers enrolls in a school for heroes.",
+    "caps": 138,
+    "date": "2016-04-03T00:00:00.000Z",
+    "image": "https://example.com/mha.jpg",
+    "genre": "action",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Demon Slayer",
+    "description": "A boy fights demons to save his sister.",
+    "caps": 44,
+    "date": "2019-04-06T00:00:00.000Z",
+    "image": "https://example.com/demonslayer.jpg",
+    "genre": "action",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Tokyo Revengers",
+    "description": "A man travels back in time to save his girlfriend.",
+    "caps": 37,
+    "date": "2021-04-11T00:00:00.000Z",
+    "image": "https://example.com/tokyorevengers.jpg",
+    "genre": "Drama",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Re:Zero",
+    "description": "A man is transported to another world and relives his death.",
+    "caps": 50,
+    "date": "2016-04-04T00:00:00.000Z",
+    "image": "https://example.com/rezero.jpg",
+    "genre": "Isekai",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Jujutsu Kaisen",
+    "description": "A student fights curses to save the world.",
+    "caps": 48,
+    "date": "2020-10-03T00:00:00.000Z",
+    "image": "https://example.com/jujutsukaisen.jpg",
+    "genre": "action",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Your Name",
+    "description": "A boy and a girl swap bodies and discover a mysterious connection.",
+    "caps": 1,
+    "date": "2016-08-26T00:00:00.000Z",
+    "image": "https://example.com/yourname.jpg",
+    "genre": "Romance",
+    "type": "Movie",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Spirited Away",
+    "description": "A girl finds herself in a mysterious spirit world.",
+    "caps": 1,
+    "date": "2001-07-20T00:00:00.000Z",
+    "image": "https://example.com/spiritedaway.jpg",
+    "genre": "Magic",
+    "type": "Movie",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Haikyuu!!",
+    "description": "A short boy dreams of becoming a volleyball ace.",
+    "caps": 85,
+    "date": "2014-04-06T00:00:00.000Z",
+    "image": "https://example.com/haikyuu.jpg",
+    "genre": "Sports",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Hunter x Hunter",
+    "description": "A boy becomes a Hunter to find his father.",
+    "caps": 148,
+    "date": "2011-10-02T00:00:00.000Z",
+    "image": "https://example.com/hxh.jpg",
+    "genre": "Adventure",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Bleach",
+    "description": "A teenager gains powers to fight evil spirits.",
+    "caps": 366,
+    "date": "2004-10-05T00:00:00.000Z",
+    "image": "https://example.com/bleach.jpg",
+    "genre": "action",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Code Geass",
+    "description": "A boy with a mysterious power leads a rebellion.",
+    "caps": 50,
+    "date": "2006-10-05T00:00:00.000Z",
+    "image": "https://example.com/codegeass.jpg",
+    "genre": "Mecha",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "The Rising of the Shield Hero",
+    "description": "A man is transported to another world to become a hero.",
+    "caps": 38,
+    "date": "2019-01-09T00:00:00.000Z",
+    "image": "https://example.com/shieldhero.jpg",
+    "genre": "Isekai",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "on_air"
+  },
+  {
+    "name": "Black Clover",
+    "description": "A boy without magic dreams of becoming the Wizard King.",
+    "caps": 170,
+    "date": "2017-10-03T00:00:00.000Z",
+    "image": "https://example.com/blackclover.jpg",
+    "genre": "Magic",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Kaguya-sama: Love Is War",
+    "description": "Two high school geniuses battle to make the other confess love first.",
+    "caps": 37,
+    "date": "2019-01-12T00:00:00.000Z",
+    "image": "https://example.com/kaguyasama.jpg",
+    "genre": "Comedy",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  },
+  {
+    "name": "Erased",
+    "description": "A man travels back in time to prevent a murder.",
+    "caps": 12,
+    "date": "2016-01-08T00:00:00.000Z",
+    "image": "https://example.com/erased.jpg",
+    "genre": "Thriller",
+    "type": "Anime",
+    "category": "Anime",
+    "status": "finished"
+  }
+]
