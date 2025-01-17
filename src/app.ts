@@ -1,6 +1,7 @@
 import express, { json } from 'express'
-import routerAnime from './modules/anime/index'
+import router from './modules/anime/index'
 
 export const app = express()
+const { routerAnime } = router
 app.use(json())
-app.use('/api', routerAnime)
+app.use('/api/anime', routerAnime())

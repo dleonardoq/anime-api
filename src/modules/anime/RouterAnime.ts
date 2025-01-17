@@ -6,7 +6,7 @@ export const routerAnime = (): Router => {
 
   const controllerAnime = new ControllerAnime()
 
-  router.get('/anime', async (_req: Request, res: Response): Promise<void> => {
+  router.get('/', async (_req: Request, res: Response): Promise<void> => {
     const animeResponse = await controllerAnime.getAll()
     res.status(animeResponse.statusCode).json(animeResponse)
   })
