@@ -1,44 +1,44 @@
 export enum animeStatus {
-  on_air = 'on air',
+  on_air = 'onair',
   finished = 'finished',
-  brand_new = 'brand new'
+  brand_new = 'brandnew'
 }
 
 export enum animeGenre {
-  action = 'action',
+  Action = 'ction',
   Adventure = 'adventure',
-  Comedy = 'Comedy',
-  Mistery = 'Mistery',
-  Drama = 'Drama',
-  Ecchi = 'Ecchi',
-  Fantasy = 'Fantasy',
-  History = 'History',
-  Magic = 'Magic',
-  Mecha = 'Mecha',
-  Music = 'Music',
-  Romance = 'Romance',
-  School = 'School',
-  Sci_Fi = 'Sci-Fi',
-  Sports = 'Sports',
-  Yaoi = 'Yaoi',
-  Yuri = 'Yuri',
-  Harem = 'Harem',
-  Psycologic = 'Psycologic',
-  Thriller = 'Thriller',
-  Isekai = 'Isekai'
+  Comedy = 'comedy',
+  Mistery = 'mistery',
+  Drama = 'drama',
+  Ecchi = 'ecchi',
+  Fantasy = 'fantasy',
+  History = 'history',
+  Magic = 'magic',
+  Mecha = 'mecha',
+  Music = 'music',
+  Romance = 'romance',
+  School = 'school',
+  Sci_Fi = 'sci-Fi',
+  Sports = 'sports',
+  Yaoi = 'yaoi',
+  Yuri = 'yuri',
+  Harem = 'harem',
+  Psycologic = 'psycologic',
+  Thriller = 'thriller',
+  Isekai = 'isekai'
 }
 
 export enum animeType {
-  Anime = 'Anime',
-  Movie = 'Movie',
-  Specials = 'Specials',
-  Ova = 'Ova',
-  Ona = 'Ona'
+  Anime = 'anime',
+  Movie = 'movie',
+  Specials = 'specials',
+  Ova = 'ova',
+  Ona = 'ona'
 }
 
 export enum animeCategory {
-  Anime = 'Anime',
-  Donghua = 'Donghua'
+  Anime = 'anime',
+  Donghua = 'donghua'
 }
 
 export interface Anime {
