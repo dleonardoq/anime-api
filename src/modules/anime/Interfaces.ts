@@ -5,7 +5,7 @@ export enum animeStatus {
 }
 
 export enum animeGenre {
-  Action = 'ction',
+  Action = 'action',
   Adventure = 'adventure',
   Comedy = 'comedy',
   Mistery = 'mistery',

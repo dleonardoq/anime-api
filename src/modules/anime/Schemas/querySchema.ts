@@ -5,7 +5,8 @@ const querySchema = z.object({
   genre: z.nativeEnum(animeGenre).optional(),
   type: z.nativeEnum(animeType).optional(),
   category: z.nativeEnum(animeCategory).optional(),
-  status: z.nativeEnum(animeStatus).optional()
+  status: z.nativeEnum(animeStatus).optional(),
+  name: z.string().optional()
 }).strict()
 
 export type querySchemaType = z.infer<typeof querySchema>
