@@ -41,6 +41,6 @@ export class ModelAnime {
       return { statusCode: 404, message: 'Movies not Found', data: [] }
     }
 
-    return { statusCode: 404, message: 'Movies not Found', data: filteredAnimes }
+    return { statusCode: 200, message: 'Movies not Found', data: filteredAnimes }
   }
 }
