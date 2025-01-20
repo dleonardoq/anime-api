@@ -42,6 +42,7 @@ export enum animeCategory {
 }
 
 export interface Anime {
+  uuid: string
   name: string
   description: string
   caps: number

@@ -46,4 +46,20 @@ export class ModelAnime {
 
     return { statusCode: 200, message: 'OK', data: filteredAnimes }
   }
+
+  getById = async ({ id }: { id: string }): Promise<returnType> => {
+    const animeById = await this.animesResponse.find(anime => anime.uuid === id)
+    if (animeById === undefined) {
+      return {
+        statusCode: 404,
+        message: 'Anime not found',
+        data: []
+      }
+    }
+    return {
+      statusCode: 200,
+      message: 'OK',
+      data: animeById
+    }
+  }
 }
