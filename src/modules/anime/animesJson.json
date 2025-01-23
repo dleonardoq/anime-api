@@ -6,7 +6,7 @@
     "caps": 87,
     "date": "2013-04-06T00:00:00.000Z",
     "image": "https://example.com/aot.jpg",
-    "genre": "action",
+    "genre": ["action", "adventure"],
     "type": "Anime",
     "category": "Anime",
     "status": "finished"
@@ -18,7 +18,7 @@
     "caps": 1050,
     "date": "1999-10-20T00:00:00.000Z",
     "image": "https://example.com/onepiece.jpg",
-    "genre": "Adventure",
+    "genre": ["Adventure", "drama"],
     "type": "Anime",
     "category": "Anime",
     "status": "onair"
@@ -30,7 +30,7 @@
     "caps": 37,
     "date": "2006-10-03T00:00:00.000Z",
     "image": "https://example.com/deathnote.jpg",
-    "genre": "Mistery",
+    "genre": ["Mistery", "yury"],
     "type": "Anime",
     "category": "Anime",
     "status": "finished"
@@ -42,7 +42,7 @@
     "caps": 96,
     "date": "2012-07-08T00:00:00.000Z",
     "image": "https://example.com/sao.jpg",
-    "genre": "Fantasy",
+    "genre": ["Fantasy", "harem", "isekai"],
     "type": "Anime",
     "category": "Anime",
     "status": "finished"
@@ -54,7 +54,7 @@
     "caps": 220,
     "date": "2002-10-03T00:00:00.000Z",
     "image": "https://example.com/naruto.jpg",
-    "genre": "action",
+    "genre": ["action", "isekai"],
     "type": "Anime",
     "category": "Anime",
     "status": "finished"
@@ -66,7 +66,7 @@
     "caps": 138,
     "date": "2016-04-03T00:00:00.000Z",
     "image": "https://example.com/mha.jpg",
-    "genre": "action",
+    "genre": ["action", "school", "romance"],
     "type": "Anime",
     "category": "Anime",
     "status": "onair"
@@ -78,7 +78,7 @@
     "caps": 44,
     "date": "2019-04-06T00:00:00.000Z",
     "image": "https://example.com/demonslayer.jpg",
-    "genre": "action",
+    "genre": ["action", "sci-Fi", "sports"],
     "type": "Anime",
     "category": "Anime",
     "status": "onair"
@@ -90,7 +90,7 @@
     "caps": 37,
     "date": "2021-04-11T00:00:00.000Z",
     "image": "https://example.com/tokyorevengers.jpg",
-    "genre": "Drama",
+    "genre": ["Drama"],
     "type": "Anime",
     "category": "Anime",
     "status": "onair"
@@ -102,7 +102,7 @@
     "caps": 50,
     "date": "2016-04-04T00:00:00.000Z",
     "image": "https://example.com/rezero.jpg",
-    "genre": "Isekai",
+    "genre": ["Isekai", "thriller"],
     "type": "Anime",
     "category": "Anime",
     "status": "onair"
@@ -114,7 +114,7 @@
     "caps": 48,
     "date": "2020-10-03T00:00:00.000Z",
     "image": "https://example.com/jujutsukaisen.jpg",
-    "genre": "action",
+    "genre": ["action", "psycologic"],
     "type": "Anime",
     "category": "Anime",
     "status": "onair"
@@ -126,7 +126,7 @@
     "caps": 1,
     "date": "2016-08-26T00:00:00.000Z",
     "image": "https://example.com/yourname.jpg",
-    "genre": "Romance",
+    "genre": ["Romance", "mecha"],
     "type": "Movie",
     "category": "Anime",
     "status": "finished"
@@ -138,7 +138,7 @@
     "caps": 1,
     "date": "2001-07-20T00:00:00.000Z",
     "image": "https://example.com/spiritedaway.jpg",
-    "genre": "Magic",
+    "genre": ["Magic", "mecha"],
     "type": "Movie",
     "category": "Anime",
     "status": "finished"
@@ -150,7 +150,7 @@
     "caps": 85,
     "date": "2014-04-06T00:00:00.000Z",
     "image": "https://example.com/haikyuu.jpg",
-    "genre": "Sports",
+    "genre": ["Sports", "comedy"],
     "type": "Anime",
     "category": "Anime",
     "status": "finished"

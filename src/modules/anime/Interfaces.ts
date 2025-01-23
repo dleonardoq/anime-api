@@ -48,7 +48,7 @@ export interface Anime {
   caps: number
   date: Date
   image: string
-  genre: animeGenre
+  genre: animeGenre[]
   type: animeType
   category: animeCategory
   status: animeStatus

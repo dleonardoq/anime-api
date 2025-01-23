@@ -1,13 +1,14 @@
 import { returnType } from '../../Common/Interface'
 import animesJson from './animesJson.json'
 import { Anime, animeCategory, animeGenre, animeStatus, animeType } from './Interfaces'
+import { bodySchemaType } from './Schemas/bodySchema'
 import { querySchemaType } from './Schemas/querySchema'
 
 export class ModelAnime {
   constructor (private readonly animesResponse: Anime[] = animesJson.map(anime => ({
     ...anime,
     date: new Date(anime.date),
-    genre: anime.genre as animeGenre,
+    genre: anime.genre as animeGenre[],
     type: anime.type as animeType,
     category: anime.category as animeCategory,
     status: anime.status as animeStatus
@@ -24,15 +25,15 @@ export class ModelAnime {
       return { statusCode: 200, message: 'OK', data: this.animesResponse }
     }
 
-    const filteredAnimes = this.animesResponse.filter(anime => {
-      const genre = anime.genre.toLocaleLowerCase()
+    // TODO: customize filter by genre to not do this filter below if these query params are not set
+
+    const filteredAnimes = await [...this.animesResponse].filter(anime => {
       const type = anime.type.toLocaleLowerCase()
       const category = anime.category.toLocaleLowerCase()
       const status = anime.status.toLocaleLowerCase()
       const name = anime.name.toLocaleLowerCase()
 
       return (
-        (!input.genre || genre === input.genre.toLocaleLowerCase()) &&
         (!input.type || type === input.type.toLocaleLowerCase()) &&
         (!input.category || category === input.category.toLocaleLowerCase()) &&
         (!input.status || status === input.status.toLocaleLowerCase()) &&
@@ -40,11 +41,23 @@ export class ModelAnime {
       )
     })
 
-    if (filteredAnimes.length <= 0) {
+    if (filteredAnimes.length <= 0 && !input.genre) {
       return { statusCode: 404, message: 'Movies not Found', data: [] }
     }
 
-    return { statusCode: 200, message: 'OK', data: filteredAnimes }
+    const arrayToValidate = filteredAnimes.length > 0 ? [...filteredAnimes] : [...this.animesResponse]
+
+    const filteredByGenre = arrayToValidate.filter(anime => (
+      anime.genre.some(g => g.toLocaleLowerCase() === input.genre?.toLocaleLowerCase())
+    ))
+
+    console.log('here')
+
+    if (filteredByGenre.length <= 0) {
+      return { statusCode: 404, message: 'Movies not Found', data: [] }
+    }
+
+    return { statusCode: 200, message: 'OK', data: filteredByGenre }
   }
 
   getById = async ({ id }: { id: string }): Promise<returnType> => {
@@ -60,6 +73,16 @@ export class ModelAnime {
       statusCode: 200,
       message: 'OK',
       data: animeById
+    }
+  }
+
+  create = async ({ input }: { input: bodySchemaType }): Promise<returnType> => {
+    const newAnime = { ...input }
+    await this.animesResponse.push(newAnime)
+    return {
+      statusCode: 200,
+      message: 'OK',
+      data: newAnime
     }
   }
 }
