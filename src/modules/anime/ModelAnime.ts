@@ -79,7 +79,7 @@ export class ModelAnime {
     await this.animesResponse.push(newAnime)
     return {
       statusCode: 200,
-      message: 'OK',
+      message: 'Anime created',
       data: newAnime
     }
   }
@@ -104,8 +104,28 @@ export class ModelAnime {
 
     return {
       statusCode: 200,
-      message: 'OK',
+      message: 'Anime updated',
       data: updatedAnime
+    }
+  }
+
+  delete = async ({ id }: { id: string }): Promise<returnType> => {
+    const animeId = this.animesResponse.findIndex(anime => anime.uuid === id)
+
+    if (animeId === -1) {
+      return {
+        statusCode: 404,
+        message: 'Anime not found',
+        data: []
+      }
+    }
+
+    const deletedAnime = await this.animesResponse.splice(animeId, 1)
+
+    return {
+      statusCode: 200,
+      message: 'Anime deleted',
+      data: deletedAnime
     }
   }
 }

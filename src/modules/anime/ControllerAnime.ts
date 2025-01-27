@@ -21,4 +21,8 @@ export class ControllerAnime {
   update = async ({ input, id }: { input: bodySchemaType, id: string }): Promise<returnType> => {
     return await this.modelAnime.update({ input, id })
   }
+
+  delete = async ({ id }: { id: string }): Promise<returnType> => {
+    return await this.modelAnime.delete({ id })
+  }
 }

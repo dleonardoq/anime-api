@@ -60,5 +60,11 @@ export const routerAnime = (): Router => {
     res.status(animeResponse.statusCode).json(animeResponse)
   })
 
+  router.delete('/:id', async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params ?? ''
+    const animeResponse = await controllerAnime.delete({ id })
+    res.status(animeResponse.statusCode).json(animeResponse)
+  })
+
   return router
 }
