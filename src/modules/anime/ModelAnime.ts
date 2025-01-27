@@ -51,8 +51,6 @@ export class ModelAnime {
       anime.genre.some(g => g.toLocaleLowerCase() === input.genre?.toLocaleLowerCase())
     ))
 
-    console.log('here')
-
     if (filteredByGenre.length <= 0) {
       return { statusCode: 404, message: 'Movies not Found', data: [] }
     }
@@ -83,6 +81,31 @@ export class ModelAnime {
       statusCode: 200,
       message: 'OK',
       data: newAnime
+    }
+  }
+
+  update = async ({ input, id }: { input: bodySchemaType, id: string }): Promise<returnType> => {
+    const animeId = this.animesResponse.findIndex(anime => anime.uuid === id)
+
+    if (animeId === -1) {
+      return {
+        statusCode: 404,
+        message: 'Anime not found',
+        data: []
+      }
+    }
+
+    const updatedAnime = {
+      ...this.animesResponse[animeId],
+      ...input
+    }
+
+    this.animesResponse[animeId] = updatedAnime
+
+    return {
+      statusCode: 200,
+      message: 'OK',
+      data: updatedAnime
     }
   }
 }

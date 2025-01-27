@@ -17,4 +17,8 @@ export class ControllerAnime {
   create = async ({ input }: { input: bodySchemaType }): Promise<returnType> => {
     return await this.modelAnime.create({ input })
   }
+
+  update = async ({ input, id }: { input: bodySchemaType, id: string }): Promise<returnType> => {
+    return await this.modelAnime.update({ input, id })
+  }
 }

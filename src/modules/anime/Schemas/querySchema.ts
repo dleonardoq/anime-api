@@ -15,7 +15,7 @@ interface validateSchemaReturn {
   data: querySchemaType | string
 }
 
-export const validateSchema = ({ queryParams }: { queryParams: any }): validateSchemaReturn => {
+export const validateQuerySchema = ({ queryParams }: { queryParams: any }): validateSchemaReturn => {
   const response = querySchema.safeParse(queryParams)
   if (response.error != null) {
     return {
