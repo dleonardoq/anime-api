@@ -23,8 +23,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: tsmroot 
-      MONGO_INITDB_ROOT_PASSWORD: toormst
+      MONGO_INITDB_ROOT_USERNAME: anmroot 
+      MONGO_INITDB_ROOT_PASSWORD: toormna
     volumes:
       - data-mongo-dev:/data/db
       - ./src/Utils/db/api-init-db.js:/docker-entrypoint-initdb.d/api-db-init.js
