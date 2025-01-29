@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  anime-api:
+    container_name: anime-api
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    networks:
+      - mongodb-network
+    env_file:
+      - .env
+    depends_on:
+      - mongo-db
+    volumes:
+      - .:/var/www/html/anime-api
+      - /var/www/html/anime-api/node_modules
+
+  mongo-db:
+    image: mongo:7
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tsmroot 
+      MONGO_INITDB_ROOT_PASSWORD: toormst
+    volumes:
+      - data-mongo-dev:/data/db
+      - ./src/Utils/db/api-init-db.js:/docker-entrypoint-initdb.d/api-db-init.js
+    networks:
+      - mongodb-network
+
+networks:
+  mongodb-network:
+    driver: bridge
+    name: mongodb-network
+
+volumes:
+  data-mongo-dev:

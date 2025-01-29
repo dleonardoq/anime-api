@@ -1,0 +1,17 @@
+FROM node:22.11.0
+
+RUN npm i -g pnpm
+
+RUN mkdir -p /var/www/html/anime-api
+
+WORKDIR /var/www/html/anime-api
+
+COPY package*.json .
+
+RUN pnpm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["pnpm", "run", "start:dev"]
