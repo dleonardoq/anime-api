@@ -12,12 +12,12 @@ services:
     env_file:
       - .env
     environment:
-      DB_NAME=${DB_NAME}
-      DB_USER=${DB_USER}
-      DB_HOST=${DB_HOST}
-      DB_PORT=${DB_PORT}
-      DB_PASSWORD=${DB_PASSWORD}
-      DB_COLLECTION=${DB_COLLECTION}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_COLLECTION: ${DB_COLLECTION}
     depends_on:
       - mongo-db
     volumes:
@@ -32,6 +32,10 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_COLLECTION: ${DB_COLLECTION}
     volumes:
       - data-mongo-dev:/data/db
       - ./src/Utils/db/api-init-db.js:/docker-entrypoint-initdb.d/api-db-init.js
