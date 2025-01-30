@@ -14,7 +14,7 @@ services:
     environment:
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
-      DB_HOST: ${DB_HOST}
+      DB_HOST: mongo-db #this is the name of the mongo container in the docker compose file
       DB_PORT: ${DB_PORT}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_COLLECTION: ${DB_COLLECTION}
@@ -28,7 +28,7 @@ services:
     image: mongo:7
     container_name: mongo-db
     ports:
-      - "27017:27017"
+      - "${DB_PORT}:${DB_PORT}"
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
