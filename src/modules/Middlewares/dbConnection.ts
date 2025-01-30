@@ -9,6 +9,7 @@ export const dbConectionMiddleware = async (_req: Request, _res: Response, next:
 
   try {
     await dbConection()
+    next()
   } catch (error) {
     next(error)
   }
