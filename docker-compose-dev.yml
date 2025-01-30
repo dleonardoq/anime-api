@@ -16,7 +16,7 @@ services:
       DB_USER=${DB_USER}
       DB_HOST=${DB_HOST}
       DB_PORT=${DB_PORT}
-      DB_PASWWORD=${DB_PASWWORD}
+      DB_PASSWORD=${DB_PASSWORD}
       DB_COLLECTION=${DB_COLLECTION}
     depends_on:
       - mongo-db
