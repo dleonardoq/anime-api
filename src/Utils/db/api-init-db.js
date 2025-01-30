@@ -1,8 +1,17 @@
 /* eslint-disable no-undef */
-db = db.getSiblingDB('anime')
+const dbName = process.env.DB_NAME
+const dbUser = process.env.DB_USER
+const dbPass = process.env.DB_PASWWORD
+const dbCollection = process.env.DB_COLLECTION
+
+if (!dbName || !dbUser || !dbPass || !dbCollection) {
+  throw new Error('Faltan variables de entorno necesarias')
+}
+
+db = db.getSiblingDB(dbName)
 db.createUser({
-  user: 'anmroot',
-  pwd: 'toormna',
-  roles: [{ role: 'readWrite', db: 'anime' }]
+  user: dbUser,
+  pwd: dbPass,
+  roles: [{ role: 'readWrite', db: dbName }]
 })
-db.createCollection('anime_collection')
+db.createCollection(dbCollection)
