@@ -84,16 +84,16 @@ export class ModelAnime {
 
   update = async ({ input, id }: { input: bodySchemaType, id: string }): Promise<returnType> => {
     try {
-      const updatedAnime = await this.mongooseModel.findOneAndUpdate({ uuid: id }, { input }, { new: true })
+      const updatedAnime = await this.mongooseModel.findOneAndUpdate({ uuid: id }, input, { new: true })
 
       if (updatedAnime == null) {
-        throw new Error()
+        throw new PersonalizedError('Anime not found', 404)
       }
 
       return {
         statusCode: 200,
         message: 'Anime updated',
-        data: []
+        data: updatedAnime as returnDataType
       }
     } catch (error) {
       throw new PersonalizedError('Error when updating anime', 500)

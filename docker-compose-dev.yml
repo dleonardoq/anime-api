@@ -26,6 +26,7 @@ services:
 
   mongo-db:
     image: mongo:7
+    restart: always
     container_name: mongo-db
     ports:
       - "${DB_PORT}:${DB_PORT}"

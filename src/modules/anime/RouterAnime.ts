@@ -1,7 +1,8 @@
-import { Request, Response, Router } from 'express'
+import { NextFunction, Request, Response, Router } from 'express'
 import { ControllerAnime } from './ControllerAnime'
 import { querySchemaType, validateQuerySchema } from './Schemas/querySchema'
 import { bodySchemaType, validateBodySchema, validatePartialBodySchema } from './Schemas/bodySchema'
+import { PersonalizedError } from '../../Common/PersonalizedError'
 
 export const routerAnime = (): Router => {
   const router = Router()
@@ -43,7 +44,7 @@ export const routerAnime = (): Router => {
     res.status(animeResponse.statusCode).json(animeResponse)
   })
 
-  router.put('/:id', async (req: Request, res: Response): Promise<void> => {
+  router.put('/:id', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { id } = req.params ?? ''
 
     const { status, data } = validatePartialBodySchema({ input: req.body })
@@ -56,8 +57,16 @@ export const routerAnime = (): Router => {
       return
     }
 
-    const animeResponse = await controllerAnime.update({ input: (data as bodySchemaType), id })
-    res.status(animeResponse.statusCode).json(animeResponse)
+    try {
+      const animeResponse = await controllerAnime.update({ input: (data as bodySchemaType), id })
+      res.status(animeResponse.statusCode).json(animeResponse)
+    } catch (error: unknown) {
+      if (error instanceof PersonalizedError) {
+        next(error)
+      } else {
+        next(error)
+      }
+    }
   })
 
   router.delete('/:id', async (req: Request, res: Response): Promise<void> => {
