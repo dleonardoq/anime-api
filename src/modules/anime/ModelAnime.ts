@@ -63,12 +63,12 @@ export class ModelAnime {
         data: animeById as returnDataType
       }
     } catch (error: unknown) {
-      let message = ''
+      let message = 'Internal server error'
       let statusCode = 500
 
       if (error instanceof PersonalizedError) {
-        message = error.message ?? 'Internal server error'
-        statusCode = error.getStatusCode() ?? 500
+        message = error.message ?? message
+        statusCode = error.getStatusCode() ?? statusCode
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -86,12 +86,12 @@ export class ModelAnime {
         data: newAnime
       }
     } catch (error) {
-      let message = ''
+      let message = 'Internal server error'
       let statusCode = 500
 
       if (error instanceof PersonalizedError) {
-        message = error.message ?? 'Internal server error'
-        statusCode = error.getStatusCode() ?? 500
+        message = error.message ?? message
+        statusCode = error.getStatusCode() ?? statusCode
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -112,12 +112,12 @@ export class ModelAnime {
         data: updatedAnime as returnDataType
       }
     } catch (error) {
-      let message = ''
+      let message = 'Internal server error'
       let statusCode = 500
 
       if (error instanceof PersonalizedError) {
-        message = error.message ?? 'Internal server error'
-        statusCode = error.getStatusCode() ?? 500
+        message = error.message ?? message
+        statusCode = error.getStatusCode() ?? statusCode
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -125,16 +125,28 @@ export class ModelAnime {
   }
 
   delete = async ({ id }: { id: string }): Promise<returnType> => {
-    const deletedAnime = await this.mongooseModel.findByIdAndDelete({ uuid: id })
+    try {
+      const deletedAnime = await this.mongooseModel.findOneAndDelete({ uuid: id })
 
-    if (deletedAnime == null) {
-      throw new PersonalizedError('Error', 500)
-    }
+      if (deletedAnime == null) {
+        throw new PersonalizedError('Anime not found', 404)
+      }
 
-    return {
-      statusCode: 200,
-      message: 'Anime deleted',
-      data: []
+      return {
+        statusCode: 200,
+        message: 'Anime deleted',
+        data: deletedAnime as returnDataType
+      }
+    } catch (error) {
+      let message = 'Internal server error'
+      let statusCode = 500
+
+      if (error instanceof PersonalizedError) {
+        message = error.message ?? message
+        statusCode = error.getStatusCode() ?? statusCode
+      }
+
+      throw new PersonalizedError(message, statusCode)
     }
   }
 }

@@ -67,15 +67,20 @@ export const routerAnime = (): Router => {
     try {
       const animeResponse = await controllerAnime.update({ input: (data as bodySchemaType), id })
       res.status(animeResponse.statusCode).json(animeResponse)
-    } catch (error: unknown) {
+    } catch (error) {
       next(error)
     }
   })
 
-  router.delete('/:id', async (req: Request, res: Response): Promise<void> => {
+  router.delete('/:id', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { id } = req.params ?? ''
-    const animeResponse = await controllerAnime.delete({ id })
-    res.status(animeResponse.statusCode).json(animeResponse)
+
+    try {
+      const animeResponse = await controllerAnime.delete({ id })
+      res.status(animeResponse.statusCode).json(animeResponse)
+    } catch (error) {
+      next(error)
+    }
   })
 
   return router
