@@ -1,4 +1,4 @@
-import { returnType } from '../../Common/Interface'
+import { returnDataType, returnType } from '../../Common/Interface'
 import { PersonalizedError } from '../../Common/PersonalizedError'
 import { bodySchemaType } from './Schemas/bodySchema'
 import { AnimeModelMongo } from './Schemas/mongoSchema'
@@ -52,7 +52,7 @@ export class ModelAnime {
   }
 
   getById = async ({ id }: { id: string }): Promise<returnType> => {
-    const animeById = await this.mongooseModel.findOne({ uuid: id })
+    const animeById = await this.mongooseModel.findOne({ uuid: id }, { _id: 0, __v: 0 })
     if (animeById === undefined) {
       return {
         statusCode: 404,
@@ -63,7 +63,7 @@ export class ModelAnime {
     return {
       statusCode: 200,
       message: 'OK',
-      data: []
+      data: animeById as returnDataType
     }
   }
 
