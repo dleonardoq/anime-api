@@ -1,6 +1,6 @@
 import { returnDataType, returnType } from '../../Common/Interface'
 import { PersonalizedError } from '../../Common/PersonalizedError'
-import { bodySchemaType } from './Schemas/bodySchema'
+import { arrayBodySchemaType, bodySchemaType } from './Schemas/bodySchema'
 import { AnimeModelMongo } from './Schemas/mongoSchema'
 import { querySchemaType } from './Schemas/querySchema'
 
@@ -77,15 +77,14 @@ export class ModelAnime {
     }
   }
 
-  create = async ({ input }: { input: bodySchemaType }): Promise<returnType> => {
+  create = async ({ input }: { input: bodySchemaType | arrayBodySchemaType }): Promise<returnType> => {
     try {
-      const newAnime = { ...input }
-      await this.mongooseModel.create(newAnime)
+      await this.mongooseModel.create(input)
 
       return {
         statusCode: 200,
         message: 'Anime created',
-        data: newAnime
+        data: input
       }
     } catch (error) {
       let message = 'Internal server error'

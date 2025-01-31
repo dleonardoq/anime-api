@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { envs } from '../../../Common/globalVariables'
+import { envs } from '../../../Common/GlobalVariables'
 import { animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
 import { bodySchemaType } from './bodySchema'
 

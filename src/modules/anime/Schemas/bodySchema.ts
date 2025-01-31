@@ -22,14 +22,22 @@ const bodySchema = z.object({
   status: z.nativeEnum(animeStatus)
 }).strict()
 
+const arrayBodySchema = z.array(bodySchema)
+
 export type bodySchemaType = z.infer<typeof bodySchema>
+export type arrayBodySchemaType = z.infer<typeof arrayBodySchema>
 interface validateBodySchemaReturn {
   status: boolean
-  data: bodySchemaType | Partial<bodySchemaType> | string
+  data: bodySchemaType | Partial<bodySchemaType> | arrayBodySchemaType | Partial<arrayBodySchemaType> | string
 }
 
 export const validateBodySchema = ({ input }: { input: any }): validateBodySchemaReturn => {
-  const response = bodySchema.safeParse(input)
+  let response
+  if (Array.isArray(input)) {
+    response = arrayBodySchema.safeParse(input)
+  } else {
+    response = bodySchema.safeParse(input)
+  }
   if (response.error != null) {
     return {
       status: false,

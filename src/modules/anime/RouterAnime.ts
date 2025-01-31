@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express'
 import { ControllerAnime } from './ControllerAnime'
 import { querySchemaType, validateQuerySchema } from './Schemas/querySchema'
-import { bodySchemaType, validateBodySchema, validatePartialBodySchema } from './Schemas/bodySchema'
+import { arrayBodySchemaType, bodySchemaType, validateBodySchema, validatePartialBodySchema } from './Schemas/bodySchema'
 
 export const routerAnime = (): Router => {
   const router = Router()
@@ -48,7 +48,7 @@ export const routerAnime = (): Router => {
     }
 
     try {
-      const animeResponse = await controllerAnime.create({ input: (data as bodySchemaType) })
+      const animeResponse = await controllerAnime.create({ input: (data as bodySchemaType | arrayBodySchemaType) })
       res.status(animeResponse.statusCode).json(animeResponse)
     } catch (error) {
       next(error)

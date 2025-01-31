@@ -1,6 +1,6 @@
 import { returnType } from '../../Common/Interface'
 import { ModelAnime } from './ModelAnime'
-import { bodySchemaType } from './Schemas/bodySchema'
+import { arrayBodySchemaType, bodySchemaType } from './Schemas/bodySchema'
 import { querySchemaType } from './Schemas/querySchema'
 
 export class ControllerAnime {
@@ -14,7 +14,7 @@ export class ControllerAnime {
     return await this.modelAnime.getById({ id })
   }
 
-  create = async ({ input }: { input: bodySchemaType }): Promise<returnType> => {
+  create = async ({ input }: { input: bodySchemaType | arrayBodySchemaType }): Promise<returnType> => {
     return await this.modelAnime.create({ input })
   }
 
