@@ -52,18 +52,26 @@ export class ModelAnime {
   }
 
   getById = async ({ id }: { id: string }): Promise<returnType> => {
-    const animeById = await this.mongooseModel.findOne({ uuid: id }, { _id: 0, __v: 0 })
-    if (animeById === undefined) {
-      return {
-        statusCode: 404,
-        message: 'Anime not found',
-        data: []
+    try {
+      const animeById = await this.mongooseModel.findOne({ uuid: id }, { _id: 0, __v: 0 })
+      if (animeById == null) {
+        throw new PersonalizedError('Anime not found', 404)
       }
-    }
-    return {
-      statusCode: 200,
-      message: 'OK',
-      data: animeById as returnDataType
+      return {
+        statusCode: 200,
+        message: 'OK',
+        data: animeById as returnDataType
+      }
+    } catch (error: unknown) {
+      let message = ''
+      let statusCode = 500
+
+      if (error instanceof PersonalizedError) {
+        message = error.message ?? 'Internal server error'
+        statusCode = error.getStatusCode() ?? 500
+      }
+
+      throw new PersonalizedError(message, statusCode)
     }
   }
 
@@ -78,7 +86,15 @@ export class ModelAnime {
         data: newAnime
       }
     } catch (error) {
-      throw new PersonalizedError('Error creating an anime', 500)
+      let message = ''
+      let statusCode = 500
+
+      if (error instanceof PersonalizedError) {
+        message = error.message ?? 'Internal server error'
+        statusCode = error.getStatusCode() ?? 500
+      }
+
+      throw new PersonalizedError(message, statusCode)
     }
   }
 
@@ -96,7 +112,15 @@ export class ModelAnime {
         data: updatedAnime as returnDataType
       }
     } catch (error) {
-      throw new PersonalizedError('Error when updating anime', 500)
+      let message = ''
+      let statusCode = 500
+
+      if (error instanceof PersonalizedError) {
+        message = error.message ?? 'Internal server error'
+        statusCode = error.getStatusCode() ?? 500
+      }
+
+      throw new PersonalizedError(message, statusCode)
     }
   }
 
