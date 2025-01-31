@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { envs } from '../../Common/globalVariables'
+import { envs } from '../../Common/GlobalVariables'
 
 const url = `mongodb://${envs.dbUser}:${envs.dbPassword}@${envs.dbHost}:${envs.dbPort}/${envs.dbName}?authSource=${envs.dbName}`
 

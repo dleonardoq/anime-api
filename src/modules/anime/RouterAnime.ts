@@ -8,7 +8,7 @@ export const routerAnime = (): Router => {
 
   const controllerAnime = new ControllerAnime()
 
-  router.get('', async (req: Request, res: Response): Promise<void> => {
+  router.get('', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { status, data } = validateQuerySchema({ queryParams: req.query })
     if (!status) {
       res.status(400).json({
@@ -18,8 +18,12 @@ export const routerAnime = (): Router => {
       })
       return
     }
-    const animeResponse = await controllerAnime.getAll({ input: data as querySchemaType })
-    res.status(animeResponse.statusCode).json(animeResponse)
+    try {
+      const animeResponse = await controllerAnime.getAll({ input: data as querySchemaType })
+      res.status(animeResponse.statusCode).json(animeResponse)
+    } catch (error) {
+      next(error)
+    }
   })
 
   router.get('/:id', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
