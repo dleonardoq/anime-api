@@ -22,7 +22,6 @@ services:
       - mongo-db
     volumes:
       - .:/var/www/html/anime-api
-      - /var/www/html/anime-api/node_modules
 
   mongo-db:
     image: mongo:7
