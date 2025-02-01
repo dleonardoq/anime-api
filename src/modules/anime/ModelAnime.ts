@@ -1,7 +1,7 @@
 import { returnDataType, returnType } from '../../Common/Interface'
 import { PersonalizedError } from '../../Common/PersonalizedError'
 import { arrayBodySchemaType, bodySchemaType } from './Schemas/bodySchema'
-import { AnimeModelMongo } from './Schemas/mongoSchema'
+import { AnimeModelMongo } from './Schemas/dbMongooseSchema'
 import { querySchemaType } from './Schemas/querySchema'
 
 export class ModelAnime {
@@ -93,6 +93,8 @@ export class ModelAnime {
       if (error instanceof PersonalizedError) {
         message = error.message ?? message
         statusCode = error.getStatusCode() ?? statusCode
+      } else if (error instanceof Error) {
+        message = error.message ?? message
       }
 
       throw new PersonalizedError(message, statusCode)

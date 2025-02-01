@@ -2,13 +2,15 @@ import { Schema, model } from 'mongoose'
 import { envs } from '../../../Common/GlobalVariables'
 import { animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
 import { bodySchemaType } from './bodySchema'
+import { randomUUID } from 'crypto'
 
 interface IAnime extends bodySchemaType, Document {}
 
 const animeSchemaMongo = new Schema<IAnime>({
   uuid: {
     type: String,
-    unique: true
+    unique: true,
+    default: randomUUID
   },
   name: String,
   description: String,
