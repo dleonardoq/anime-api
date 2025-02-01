@@ -53,3 +53,12 @@ export interface Anime {
   category: animeCategory
   status: animeStatus
 }
+
+export type AnimeNoUUID = Omit<Anime, 'uuid'>
+
+export type returnDataType = Anime | Anime[] | []
+export interface returnType {
+  statusCode: number
+  message: string
+  data: returnDataType
+}

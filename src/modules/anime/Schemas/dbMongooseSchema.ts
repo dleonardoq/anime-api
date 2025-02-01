@@ -1,10 +1,9 @@
 import { Schema, model } from 'mongoose'
 import { envs } from '../../../Common/GlobalVariables'
-import { animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
-import { bodySchemaType } from './bodySchema'
+import { Anime, animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
 import { randomUUID } from 'crypto'
 
-interface IAnime extends bodySchemaType, Document {}
+interface IAnime extends Anime, Document {}
 
 const animeSchemaMongo = new Schema<IAnime>({
   uuid: {

@@ -1,6 +1,5 @@
-import { returnDataType, returnType } from '../../Common/Interface'
 import { PersonalizedError } from '../../Common/PersonalizedError'
-import { arrayBodySchemaType, bodySchemaType } from './Schemas/bodySchema'
+import { AnimeNoUUID, returnDataType, returnType } from './Interfaces'
 import { AnimeModelMongo } from './Schemas/dbMongooseSchema'
 import { querySchemaType } from './Schemas/querySchema'
 
@@ -8,6 +7,8 @@ export class ModelAnime {
   constructor (private readonly mongooseModel = AnimeModelMongo) {}
 
   getAll = async ({ input }: { input: querySchemaType }): Promise<returnType> => {
+    // TODO: filter by name ********
+
     if (
       input.genre === undefined &&
       input.category === undefined &&
@@ -77,7 +78,7 @@ export class ModelAnime {
     }
   }
 
-  create = async ({ input }: { input: bodySchemaType | arrayBodySchemaType }): Promise<returnType> => {
+  create = async ({ input }: { input: AnimeNoUUID | AnimeNoUUID[] }): Promise<returnType> => {
     try {
       const createdAnime = await this.mongooseModel.create(input)
 
@@ -101,7 +102,7 @@ export class ModelAnime {
     }
   }
 
-  update = async ({ input, id }: { input: bodySchemaType, id: string }): Promise<returnType> => {
+  update = async ({ input, id }: { input: AnimeNoUUID, id: string }): Promise<returnType> => {
     try {
       const updatedAnime = await this.mongooseModel.findOneAndUpdate({ uuid: id }, input, { new: true })
 

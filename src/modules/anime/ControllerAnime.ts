@@ -1,6 +1,5 @@
-import { returnType } from '../../Common/Interface'
+import { AnimeNoUUID, returnType } from './Interfaces'
 import { ModelAnime } from './ModelAnime'
-import { arrayBodySchemaType, bodySchemaType } from './Schemas/bodySchema'
 import { querySchemaType } from './Schemas/querySchema'
 
 export class ControllerAnime {
@@ -14,11 +13,11 @@ export class ControllerAnime {
     return await this.modelAnime.getById({ id })
   }
 
-  create = async ({ input }: { input: bodySchemaType | arrayBodySchemaType }): Promise<returnType> => {
+  create = async ({ input }: { input: AnimeNoUUID | AnimeNoUUID[] }): Promise<returnType> => {
     return await this.modelAnime.create({ input })
   }
 
-  update = async ({ input, id }: { input: bodySchemaType, id: string }): Promise<returnType> => {
+  update = async ({ input, id }: { input: AnimeNoUUID, id: string }): Promise<returnType> => {
     return await this.modelAnime.update({ input, id })
   }
 

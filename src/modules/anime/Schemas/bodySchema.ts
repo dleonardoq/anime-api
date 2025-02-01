@@ -1,5 +1,5 @@
 import z from 'zod'
-import { animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
+import { animeCategory, animeGenre, AnimeNoUUID, animeStatus, animeType } from '../Interfaces'
 
 const bodySchema = z.object({
   name: z.string(),
@@ -23,29 +23,9 @@ const bodySchema = z.object({
 
 const arrayBodySchema = z.array(bodySchema)
 
-/*
-  Validate request data without an UUID property it's gonna be created by default
-  just to request
-*/
-type bodySchemaTypeNoUUID = z.infer<typeof bodySchema>
-type arrayBodySchemaTypeNoUUID = z.infer<typeof arrayBodySchema>
-
-/*
-  To response with the whole data including UUID
-*/
-
-const bodySchemaWithUUID = bodySchema.extend({
-  uuid: z.string()
-})
-
-const arrayBodySchemaWithUUID = z.array(bodySchemaWithUUID)
-
-export type bodySchemaType = z.infer<typeof bodySchemaWithUUID>
-export type arrayBodySchemaType = z.infer<typeof arrayBodySchemaWithUUID>
-
 interface validateBodySchemaReturn {
   status: boolean
-  data: bodySchemaTypeNoUUID | Partial<bodySchemaTypeNoUUID> | arrayBodySchemaTypeNoUUID | Partial<arrayBodySchemaTypeNoUUID> | string
+  data: AnimeNoUUID | Partial<AnimeNoUUID> | AnimeNoUUID[] | Partial<AnimeNoUUID[]> | string
 }
 
 export const validateBodySchema = ({ input }: { input: any }): validateBodySchemaReturn => {

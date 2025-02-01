@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response, Router } from 'express'
 import { ControllerAnime } from './ControllerAnime'
 import { querySchemaType, validateQuerySchema } from './Schemas/querySchema'
-import { arrayBodySchemaType, bodySchemaType, validateBodySchema, validatePartialBodySchema } from './Schemas/bodySchema'
+import { validateBodySchema, validatePartialBodySchema } from './Schemas/bodySchema'
+import { AnimeNoUUID } from './Interfaces'
 
 export const routerAnime = (): Router => {
   const router = Router()
@@ -48,7 +49,7 @@ export const routerAnime = (): Router => {
     }
 
     try {
-      const animeResponse = await controllerAnime.create({ input: (data as bodySchemaType | arrayBodySchemaType) })
+      const animeResponse = await controllerAnime.create({ input: (data as AnimeNoUUID | AnimeNoUUID[]) })
       res.status(animeResponse.statusCode).json(animeResponse)
     } catch (error) {
       next(error)
@@ -69,7 +70,7 @@ export const routerAnime = (): Router => {
     }
 
     try {
-      const animeResponse = await controllerAnime.update({ input: (data as bodySchemaType), id })
+      const animeResponse = await controllerAnime.update({ input: (data as AnimeNoUUID), id })
       res.status(animeResponse.statusCode).json(animeResponse)
     } catch (error) {
       next(error)
