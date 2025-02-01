@@ -79,12 +79,12 @@ export class ModelAnime {
 
   create = async ({ input }: { input: bodySchemaType | arrayBodySchemaType }): Promise<returnType> => {
     try {
-      await this.mongooseModel.create(input)
+      const createdAnime = await this.mongooseModel.create(input)
 
       return {
         statusCode: 200,
         message: 'Anime created',
-        data: input
+        data: createdAnime
       }
     } catch (error) {
       let message = 'Internal server error'
