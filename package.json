@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev ./src/bin/www/http.ts",
+    "start:dev": "ts-node-dev -r tsconfig-paths/register ./src/bin/www/http.ts",
     "tsc-build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

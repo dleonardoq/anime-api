@@ -1,3 +1,3 @@
-import { routerAnime } from './RouterAnime'
+import { routerAnime } from '@anime/RouterAnime'
 
 export default { routerAnime }

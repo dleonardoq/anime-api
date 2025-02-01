@@ -1,5 +1,5 @@
 import z from 'zod'
-import { animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
+import { animeCategory, animeGenre, animeStatus, animeType } from '@anime/Interfaces'
 
 const querySchema = z.object({
   genre: z.nativeEnum(animeGenre).optional(),

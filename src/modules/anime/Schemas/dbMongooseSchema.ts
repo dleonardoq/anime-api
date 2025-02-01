@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
-import { envs } from '../../../Common/GlobalVariables'
-import { Anime, animeCategory, animeGenre, animeStatus, animeType } from '../Interfaces'
+import { envs } from '@common/GlobalVariables'
+import { Anime, animeCategory, animeGenre, animeStatus, animeType } from '@anime/Interfaces'
 import { randomUUID } from 'crypto'
 
 interface IAnime extends Anime, Document {}

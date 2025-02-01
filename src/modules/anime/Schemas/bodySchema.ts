@@ -1,5 +1,5 @@
 import z from 'zod'
-import { animeCategory, animeGenre, AnimeNoUUID, animeStatus, animeType } from '../Interfaces'
+import { animeCategory, animeGenre, AnimeNoUUID, animeStatus, animeType } from '@anime/Interfaces'
 
 const bodySchema = z.object({
   name: z.string(),

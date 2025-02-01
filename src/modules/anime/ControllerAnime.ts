@@ -1,6 +1,6 @@
-import { AnimeNoUUID, returnType } from './Interfaces'
-import { ModelAnime } from './ModelAnime'
-import { querySchemaType } from './Schemas/querySchema'
+import { AnimeNoUUID, returnType } from '@anime/Interfaces'
+import { ModelAnime } from '@anime/ModelAnime'
+import { querySchemaType } from '@anime/Schemas/querySchema'
 
 export class ControllerAnime {
   constructor (private readonly modelAnime = new ModelAnime()) {}

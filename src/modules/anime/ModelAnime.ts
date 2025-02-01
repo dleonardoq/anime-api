@@ -1,7 +1,7 @@
-import { PersonalizedError } from '../../Common/PersonalizedError'
-import { AnimeNoUUID, returnDataType, returnType } from './Interfaces'
-import { AnimeModelMongo } from './Schemas/dbMongooseSchema'
-import { querySchemaType } from './Schemas/querySchema'
+import { PersonalizedError } from '@common/PersonalizedError'
+import { AnimeNoUUID, returnDataType, returnType } from '@anime/Interfaces'
+import { AnimeModelMongo } from '@anime/Schemas/dbMongooseSchema'
+import { querySchemaType } from '@anime/Schemas/querySchema'
 
 export class ModelAnime {
   constructor (private readonly mongooseModel = AnimeModelMongo) {}

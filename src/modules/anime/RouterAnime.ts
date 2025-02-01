@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response, Router } from 'express'
-import { ControllerAnime } from './ControllerAnime'
-import { querySchemaType, validateQuerySchema } from './Schemas/querySchema'
-import { validateBodySchema, validatePartialBodySchema } from './Schemas/bodySchema'
-import { AnimeNoUUID } from './Interfaces'
+import { ControllerAnime } from '@anime/ControllerAnime'
+import { querySchemaType, validateQuerySchema } from '@anime/Schemas/querySchema'
+import { validateBodySchema, validatePartialBodySchema } from '@anime/Schemas/bodySchema'
+import { AnimeNoUUID } from '@anime/Interfaces'
 
 export const routerAnime = (): Router => {
   const router = Router()
