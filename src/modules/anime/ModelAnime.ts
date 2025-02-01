@@ -2,6 +2,7 @@ import { PersonalizedError } from '@common/PersonalizedError'
 import { AnimeNoUUID, returnDataType, returnType } from '@anime/Interfaces'
 import { AnimeModelMongo } from '@anime/Schemas/dbMongooseSchema'
 import { querySchemaType } from '@anime/Schemas/querySchema'
+import { logger } from '@common/Logger'
 
 export class ModelAnime {
   constructor (private readonly mongooseModel = AnimeModelMongo) {}
@@ -29,6 +30,8 @@ export class ModelAnime {
         if (error instanceof PersonalizedError) {
           message = error.message ?? message
           statusCode = error.getStatusCode() ?? statusCode
+        } else if (error instanceof Error) {
+          logger.error({ message: error })
         }
 
         throw new PersonalizedError(message, statusCode)
@@ -48,6 +51,8 @@ export class ModelAnime {
       if (error instanceof PersonalizedError) {
         message = error.message ?? message
         statusCode = error.getStatusCode() ?? statusCode
+      } else if (error instanceof Error) {
+        logger.error({ message: error })
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -72,6 +77,8 @@ export class ModelAnime {
       if (error instanceof PersonalizedError) {
         message = error.message ?? message
         statusCode = error.getStatusCode() ?? statusCode
+      } else if (error instanceof Error) {
+        logger.error({ message: error })
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -95,7 +102,7 @@ export class ModelAnime {
         message = error.message ?? message
         statusCode = error.getStatusCode() ?? statusCode
       } else if (error instanceof Error) {
-        message = error.message ?? message
+        logger.error({ message: error })
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -122,6 +129,8 @@ export class ModelAnime {
       if (error instanceof PersonalizedError) {
         message = error.message ?? message
         statusCode = error.getStatusCode() ?? statusCode
+      } else if (error instanceof Error) {
+        logger.error({ message: error })
       }
 
       throw new PersonalizedError(message, statusCode)
@@ -148,6 +157,8 @@ export class ModelAnime {
       if (error instanceof PersonalizedError) {
         message = error.message ?? message
         statusCode = error.getStatusCode() ?? statusCode
+      } else if (error instanceof Error) {
+        logger.error({ message: error })
       }
 
       throw new PersonalizedError(message, statusCode)
