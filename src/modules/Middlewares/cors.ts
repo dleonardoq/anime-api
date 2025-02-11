@@ -15,7 +15,7 @@ export const corsMiddleware = ({ allowedOrigins = ALLOWED_ORIGINS } = {}): Retur
       return callback(null, true)
     }
 
-    logger.error({ message: `Origin not allowed by CORS: ${origin as string}` })
+    logger.error({ message: `Origin not allowed by CORS: ${origin}` })
     return callback(new Error('Not allowed by CORS'))
   }
 })
